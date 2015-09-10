@@ -51,8 +51,6 @@ if has('gui_running')
 	set guioptions-=T  " no toolbar
 endif
 
-execute pathogen#infect()
-
 " Keyboard mappings
 map <F1> :help<CR>
 map <F2> :NERDTreeToggle<CR>
@@ -61,11 +59,3 @@ map <F4> :next<CR>
 map <C-u> :source ~/.vimrc<CR>
 imap <Tab> <C-P>
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-colorscheme solarized
-
-let g:SuperTabDefaultCompletionType = ""
