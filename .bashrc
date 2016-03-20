@@ -12,8 +12,6 @@ else
     fi
 fi
 
-hostname=`hostname`
-
 alias ls='ls --color'
 alias vi='vim'
 alias bashrc='vi ~/.bashrc ; source ~/.bashrc'
