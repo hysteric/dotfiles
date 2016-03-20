@@ -1,10 +1,27 @@
 "Ghislain's vimrc
 
 set nocompatible                	" use vim defaults
+
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+   " let Vundle manage Vundle, required
+   Plugin 'VundleVim/Vundle.vim'
+
+   Plugin 'tpope/vim-fugitive'
+
+   Plugin 'solarized'
+
+
+call vundle#end()
+filetype plugin indent on
+
 set number                      	" show line numbers
 set incsearch ignorecase hlsearch	" incremental searches
 set ruler                       	" show ruler
-set antialias                   	" antialias fonts (only in GUI)
 set background=dark             	" set color scheme for dark backgrounds
 " set cursorline                  	" highlight current line
 set fsync                       	" force disk sync when saving
@@ -13,6 +30,7 @@ set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P        " Status line format
 set laststatus=2                	" always show status line
 set tabstop=4                   	" tabs are 4 spaces wide
 set shiftwidth=4                	" number of spaces for indentation
+set shiftround                      " Round indent to multiple of shiftwidth
 set visualbell                  	" use visual bell
 set wrap                        	" wrap long lines
 set title                       	" update terminal title
@@ -48,7 +66,12 @@ if has("autocmd")
 endif
 
 if has('gui_running')
-	set guioptions-=T  " no toolbar
+    set guioptions-=T  " no toolbar
+    colorscheme solarized
+elseif &term == "screen-256color"
+    colorscheme solarized
+else
+    colorscheme slate
 endif
 
 " Keyboard mappings
